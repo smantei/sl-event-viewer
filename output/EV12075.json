@@ -1,0 +1,904 @@
+{
+  "schema_version": "1.0.0",
+  "event_id": "EV12075",
+  "meta": {
+    "symbol": "NQ1!",
+    "timeframe": "5m",
+    "timezone": "UTC",
+    "created_at": "2025-12-15T04:06:05.285054Z"
+  },
+  "trade_signals": [
+    {
+      "signal": "buy_short",
+      "fvg_5m_id": 12075,
+      "direction": "down",
+      "index_first_touch": 2,
+      "index_valid_close_after_touch": 4,
+      "entry_ts": "2025-11-03T06:10:00Z",
+      "entry_price": 26062.0,
+      "stop_loss": 26088.75,
+      "take_profit": 26035.25,
+      "exit_signal": "sell_s_prof",
+      "exit_ts": "2025-11-03 06:25:00",
+      "exit_price": 26035.25
+    }
+  ],
+  "hourly_fvg": {
+    "fvg_hour_id": 1063,
+    "direction": "down",
+    "start_time": "2025-11-03T01:00:00Z",
+    "end_time": "2025-11-03T04:00:00Z",
+    "begin_bound": 26084.75,
+    "end_bound": 26087.5,
+    "pretouch_window_start": "2025-11-03 04:00:00",
+    "pretouch_window_end": "2025-11-03 07:00:00",
+    "touch_ts": "2025-11-03 04:25:00",
+    "touch_price": 26086.25,
+    "touch_bound": 26084.75,
+    "touch_candle_ts": "2025-11-03 04:25:00",
+    "posttouch_window_start": "2025-11-03 04:25:00",
+    "posttouch_window_end": "2025-11-03 06:10:00"
+  },
+  "fvg_5m": [
+    {
+      "fvg_5m_id": 12075,
+      "direction": "down",
+      "start_time": "2025-11-03T05:40:00Z",
+      "begin_bound": 26069.75,
+      "end_bound": 26076.75,
+      "index_first_touch": 2,
+      "index_valid_close_after_touch": 4,
+      "touch_ts": "2025-11-03T06:00:00Z",
+      "entry_ts": "2025-11-03T06:10:00Z",
+      "entry_price": 26062.0
+    }
+  ],
+  "bos_5m": [
+    {
+      "bos_id": 4847,
+      "ts_event": "2025-11-03T05:15:00Z",
+      "bos_direction": "bos_down",
+      "trigger_close": 26065.25,
+      "broken_level": 26072.5,
+      "source_hilo_id": 29286
+    },
+    {
+      "bos_id": 4847,
+      "ts_event": "2025-11-03T05:15:00Z",
+      "bos_direction": "bos_down",
+      "trigger_close": 26065.25,
+      "broken_level": 26072.5,
+      "source_hilo_id": 29287
+    },
+    {
+      "bos_id": 4848,
+      "ts_event": "2025-11-03T05:35:00Z",
+      "bos_direction": "bos_up",
+      "trigger_close": 26085.75,
+      "broken_level": 26080.0,
+      "source_hilo_id": 29290
+    },
+    {
+      "bos_id": 4848,
+      "ts_event": "2025-11-03T05:35:00Z",
+      "bos_direction": "bos_up",
+      "trigger_close": 26085.75,
+      "broken_level": 26080.0,
+      "source_hilo_id": 29291
+    },
+    {
+      "bos_id": 4849,
+      "ts_event": "2025-11-03T05:45:00Z",
+      "bos_direction": "bos_down",
+      "trigger_close": 26067.5,
+      "broken_level": 26068.5,
+      "source_hilo_id": 29290
+    },
+    {
+      "bos_id": 4849,
+      "ts_event": "2025-11-03T05:45:00Z",
+      "bos_direction": "bos_down",
+      "trigger_close": 26067.5,
+      "broken_level": 26068.5,
+      "source_hilo_id": 29291
+    }
+  ],
+  "summary": {
+    "fvg_5m_count": 1,
+    "bos_5m_count": 6,
+    "signal_count": 1,
+    "status": "completed"
+  },
+  "ohlc_5m": [
+    {
+      "ts_event": "2025-11-03T01:00:00Z",
+      "open": 26116.25,
+      "high": 26121.0,
+      "low": 26111.5,
+      "close": 26112.25,
+      "volume": 639.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T01:05:00Z",
+      "open": 26113.5,
+      "high": 26113.75,
+      "low": 26100.75,
+      "close": 26104.25,
+      "volume": 644.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T01:10:00Z",
+      "open": 26103.75,
+      "high": 26112.75,
+      "low": 26103.75,
+      "close": 26110.0,
+      "volume": 335.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T01:15:00Z",
+      "open": 26111.0,
+      "high": 26121.5,
+      "low": 26109.75,
+      "close": 26118.75,
+      "volume": 579.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T01:20:00Z",
+      "open": 26119.5,
+      "high": 26123.0,
+      "low": 26104.0,
+      "close": 26104.0,
+      "volume": 602.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T01:25:00Z",
+      "open": 26104.25,
+      "high": 26107.75,
+      "low": 26100.5,
+      "close": 26106.25,
+      "volume": 404.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T01:30:00Z",
+      "open": 26107.0,
+      "high": 26109.25,
+      "low": 26101.75,
+      "close": 26103.5,
+      "volume": 331.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T01:35:00Z",
+      "open": 26103.75,
+      "high": 26104.5,
+      "low": 26095.25,
+      "close": 26098.0,
+      "volume": 377.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T01:40:00Z",
+      "open": 26097.5,
+      "high": 26100.25,
+      "low": 26087.5,
+      "close": 26099.0,
+      "volume": 504.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T01:45:00Z",
+      "open": 26099.5,
+      "high": 26100.0,
+      "low": 26091.0,
+      "close": 26095.5,
+      "volume": 293.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T01:50:00Z",
+      "open": 26096.0,
+      "high": 26097.75,
+      "low": 26088.25,
+      "close": 26088.75,
+      "volume": 239.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T01:55:00Z",
+      "open": 26088.5,
+      "high": 26095.25,
+      "low": 26088.25,
+      "close": 26089.5,
+      "volume": 492.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T02:00:00Z",
+      "open": 26088.75,
+      "high": 26095.25,
+      "low": 26086.75,
+      "close": 26093.0,
+      "volume": 370.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T02:05:00Z",
+      "open": 26093.25,
+      "high": 26096.0,
+      "low": 26084.5,
+      "close": 26089.75,
+      "volume": 362.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T02:10:00Z",
+      "open": 26089.25,
+      "high": 26095.5,
+      "low": 26083.0,
+      "close": 26094.5,
+      "volume": 344.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T02:15:00Z",
+      "open": 26094.75,
+      "high": 26099.75,
+      "low": 26092.0,
+      "close": 26099.5,
+      "volume": 288.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T02:20:00Z",
+      "open": 26099.5,
+      "high": 26111.5,
+      "low": 26098.25,
+      "close": 26107.75,
+      "volume": 465.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T02:25:00Z",
+      "open": 26108.75,
+      "high": 26114.5,
+      "low": 26103.5,
+      "close": 26103.5,
+      "volume": 303.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T02:30:00Z",
+      "open": 26103.25,
+      "high": 26104.5,
+      "low": 26088.5,
+      "close": 26090.0,
+      "volume": 444.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T02:35:00Z",
+      "open": 26088.5,
+      "high": 26090.5,
+      "low": 26070.0,
+      "close": 26073.25,
+      "volume": 790.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T02:40:00Z",
+      "open": 26073.5,
+      "high": 26087.0,
+      "low": 26070.0,
+      "close": 26085.25,
+      "volume": 376.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T02:45:00Z",
+      "open": 26086.25,
+      "high": 26089.5,
+      "low": 26078.75,
+      "close": 26088.25,
+      "volume": 278.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T02:50:00Z",
+      "open": 26088.75,
+      "high": 26093.0,
+      "low": 26086.25,
+      "close": 26089.5,
+      "volume": 355.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T02:55:00Z",
+      "open": 26089.0,
+      "high": 26089.75,
+      "low": 26078.0,
+      "close": 26083.0,
+      "volume": 351.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T03:00:00Z",
+      "open": 26083.0,
+      "high": 26084.75,
+      "low": 26079.75,
+      "close": 26080.25,
+      "volume": 161.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T03:05:00Z",
+      "open": 26080.5,
+      "high": 26083.75,
+      "low": 26071.75,
+      "close": 26076.75,
+      "volume": 215.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T03:10:00Z",
+      "open": 26075.25,
+      "high": 26075.75,
+      "low": 26063.25,
+      "close": 26065.5,
+      "volume": 353.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T03:15:00Z",
+      "open": 26066.25,
+      "high": 26078.5,
+      "low": 26066.25,
+      "close": 26072.0,
+      "volume": 325.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T03:20:00Z",
+      "open": 26071.25,
+      "high": 26071.25,
+      "low": 26050.75,
+      "close": 26056.0,
+      "volume": 525.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T03:25:00Z",
+      "open": 26055.25,
+      "high": 26064.25,
+      "low": 26051.5,
+      "close": 26063.5,
+      "volume": 324.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T03:30:00Z",
+      "open": 26064.25,
+      "high": 26071.5,
+      "low": 26058.75,
+      "close": 26071.0,
+      "volume": 377.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T03:35:00Z",
+      "open": 26071.25,
+      "high": 26081.25,
+      "low": 26070.0,
+      "close": 26081.25,
+      "volume": 334.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T03:40:00Z",
+      "open": 26081.5,
+      "high": 26081.5,
+      "low": 26067.75,
+      "close": 26071.75,
+      "volume": 293.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T03:45:00Z",
+      "open": 26070.75,
+      "high": 26071.75,
+      "low": 26062.75,
+      "close": 26071.75,
+      "volume": 359.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T03:50:00Z",
+      "open": 26071.5,
+      "high": 26078.0,
+      "low": 26069.25,
+      "close": 26075.0,
+      "volume": 309.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T03:55:00Z",
+      "open": 26074.75,
+      "high": 26078.75,
+      "low": 26073.0,
+      "close": 26076.0,
+      "volume": 167.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T04:00:00Z",
+      "open": 26075.5,
+      "high": 26076.0,
+      "low": 26065.25,
+      "close": 26067.5,
+      "volume": 224.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T04:05:00Z",
+      "open": 26068.5,
+      "high": 26076.5,
+      "low": 26067.0,
+      "close": 26073.25,
+      "volume": 165.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T04:10:00Z",
+      "open": 26072.0,
+      "high": 26074.75,
+      "low": 26067.0,
+      "close": 26071.5,
+      "volume": 188.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T04:15:00Z",
+      "open": 26072.75,
+      "high": 26073.25,
+      "low": 26066.0,
+      "close": 26070.0,
+      "volume": 132.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T04:20:00Z",
+      "open": 26070.25,
+      "high": 26080.5,
+      "low": 26066.25,
+      "close": 26080.0,
+      "volume": 292.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T04:25:00Z",
+      "open": 26079.25,
+      "high": 26086.25,
+      "low": 26077.5,
+      "close": 26078.25,
+      "volume": 319.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T04:30:00Z",
+      "open": 26079.0,
+      "high": 26079.75,
+      "low": 26070.5,
+      "close": 26078.5,
+      "volume": 221.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T04:35:00Z",
+      "open": 26079.75,
+      "high": 26083.0,
+      "low": 26077.25,
+      "close": 26082.25,
+      "volume": 120.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T04:40:00Z",
+      "open": 26082.25,
+      "high": 26085.75,
+      "low": 26072.5,
+      "close": 26074.25,
+      "volume": 239.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T04:45:00Z",
+      "open": 26075.0,
+      "high": 26081.75,
+      "low": 26074.5,
+      "close": 26081.75,
+      "volume": 154.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T04:50:00Z",
+      "open": 26082.5,
+      "high": 26084.75,
+      "low": 26079.25,
+      "close": 26083.25,
+      "volume": 136.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T04:55:00Z",
+      "open": 26083.25,
+      "high": 26085.25,
+      "low": 26078.25,
+      "close": 26085.25,
+      "volume": 110.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T05:00:00Z",
+      "open": 26085.0,
+      "high": 26088.0,
+      "low": 26081.25,
+      "close": 26087.0,
+      "volume": 257.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T05:05:00Z",
+      "open": 26086.75,
+      "high": 26087.5,
+      "low": 26077.0,
+      "close": 26081.0,
+      "volume": 246.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T05:10:00Z",
+      "open": 26081.25,
+      "high": 26082.5,
+      "low": 26076.25,
+      "close": 26079.25,
+      "volume": 152.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T05:15:00Z",
+      "open": 26078.25,
+      "high": 26079.5,
+      "low": 26061.0,
+      "close": 26065.25,
+      "volume": 276.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T05:20:00Z",
+      "open": 26064.5,
+      "high": 26064.5,
+      "low": 26056.5,
+      "close": 26061.5,
+      "volume": 217.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T05:25:00Z",
+      "open": 26062.0,
+      "high": 26078.0,
+      "low": 26062.0,
+      "close": 26077.25,
+      "volume": 243.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T05:30:00Z",
+      "open": 26078.0,
+      "high": 26080.0,
+      "low": 26068.5,
+      "close": 26076.5,
+      "volume": 255.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T05:35:00Z",
+      "open": 26075.0,
+      "high": 26087.25,
+      "low": 26071.75,
+      "close": 26085.75,
+      "volume": 216.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T05:40:00Z",
+      "open": 26086.0,
+      "high": 26087.25,
+      "low": 26076.75,
+      "close": 26082.0,
+      "volume": 271.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T05:45:00Z",
+      "open": 26082.5,
+      "high": 26082.5,
+      "low": 26065.0,
+      "close": 26067.5,
+      "volume": 327.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T05:50:00Z",
+      "open": 26067.25,
+      "high": 26069.75,
+      "low": 26060.5,
+      "close": 26062.5,
+      "volume": 240.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T05:55:00Z",
+      "open": 26062.75,
+      "high": 26068.5,
+      "low": 26056.5,
+      "close": 26067.5,
+      "volume": 355.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T06:00:00Z",
+      "open": 26068.25,
+      "high": 26080.0,
+      "low": 26066.5,
+      "close": 26078.75,
+      "volume": 352.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T06:05:00Z",
+      "open": 26079.0,
+      "high": 26081.75,
+      "low": 26073.0,
+      "close": 26073.0,
+      "volume": 153.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T06:10:00Z",
+      "open": 26072.0,
+      "high": 26072.5,
+      "low": 26062.0,
+      "close": 26062.0,
+      "volume": 197.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T06:15:00Z",
+      "open": 26061.5,
+      "high": 26064.5,
+      "low": 26058.25,
+      "close": 26059.25,
+      "volume": 179.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T06:20:00Z",
+      "open": 26059.5,
+      "high": 26061.25,
+      "low": 26044.25,
+      "close": 26046.5,
+      "volume": 473.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T06:25:00Z",
+      "open": 26046.25,
+      "high": 26050.5,
+      "low": 26033.75,
+      "close": 26042.0,
+      "volume": 521.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T06:30:00Z",
+      "open": 26040.75,
+      "high": 26055.75,
+      "low": 26037.25,
+      "close": 26055.75,
+      "volume": 370.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T06:35:00Z",
+      "open": 26056.0,
+      "high": 26060.5,
+      "low": 26050.5,
+      "close": 26050.5,
+      "volume": 210.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T06:40:00Z",
+      "open": 26050.5,
+      "high": 26055.0,
+      "low": 26041.0,
+      "close": 26043.25,
+      "volume": 269.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T06:45:00Z",
+      "open": 26044.0,
+      "high": 26049.75,
+      "low": 26031.75,
+      "close": 26049.75,
+      "volume": 373.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T06:50:00Z",
+      "open": 26050.0,
+      "high": 26060.25,
+      "low": 26047.25,
+      "close": 26052.0,
+      "volume": 274.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T06:55:00Z",
+      "open": 26051.5,
+      "high": 26053.0,
+      "low": 26046.0,
+      "close": 26048.0,
+      "volume": 132.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T07:00:00Z",
+      "open": 26047.25,
+      "high": 26049.0,
+      "low": 26029.75,
+      "close": 26034.75,
+      "volume": 553.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T07:05:00Z",
+      "open": 26034.75,
+      "high": 26035.25,
+      "low": 26026.0,
+      "close": 26033.75,
+      "volume": 438.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T07:10:00Z",
+      "open": 26032.75,
+      "high": 26032.75,
+      "low": 26024.25,
+      "close": 26030.0,
+      "volume": 201.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T07:15:00Z",
+      "open": 26030.25,
+      "high": 26039.5,
+      "low": 26025.25,
+      "close": 26035.25,
+      "volume": 241.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T07:20:00Z",
+      "open": 26035.25,
+      "high": 26044.25,
+      "low": 26023.5,
+      "close": 26043.75,
+      "volume": 352.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T07:25:00Z",
+      "open": 26043.25,
+      "high": 26048.75,
+      "low": 26030.0,
+      "close": 26036.75,
+      "volume": 311.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T07:30:00Z",
+      "open": 26036.25,
+      "high": 26039.75,
+      "low": 26029.25,
+      "close": 26031.5,
+      "volume": 167.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T07:35:00Z",
+      "open": 26031.25,
+      "high": 26036.75,
+      "low": 26027.5,
+      "close": 26034.75,
+      "volume": 248.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T07:40:00Z",
+      "open": 26034.75,
+      "high": 26034.75,
+      "low": 26019.25,
+      "close": 26019.5,
+      "volume": 239.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T07:45:00Z",
+      "open": 26019.0,
+      "high": 26028.5,
+      "low": 26017.25,
+      "close": 26023.75,
+      "volume": 352.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T07:50:00Z",
+      "open": 26022.0,
+      "high": 26037.25,
+      "low": 26019.5,
+      "close": 26030.0,
+      "volume": 271.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T07:55:00Z",
+      "open": 26030.0,
+      "high": 26035.0,
+      "low": 26020.75,
+      "close": 26031.0,
+      "volume": 373.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-11-03T08:00:00Z",
+      "open": 26031.25,
+      "high": 26039.0,
+      "low": 26019.5,
+      "close": 26036.75,
+      "volume": 452.0,
+      "is_rth_session": false
+    }
+  ],
+  "ml_features": {
+    "schema_version": "1.0.0",
+    "event_id": "EV12075",
+    "htf_fvg_width": 2.75,
+    "htf_fvg_mid": 26086.125,
+    "is_long": 0,
+    "entry_price": 26062.0,
+    "stop_loss": 26088.75,
+    "take_profit": 26035.25,
+    "R": 26.75,
+    "RR_target": 1.0,
+    "dist_entry_to_mid": -24.125,
+    "dist_entry_to_mid_in_R": -0.9018691588785047,
+    "dist_touch_to_mid": 0.125,
+    "dist_touch_to_mid_in_R": 0.004672897196261682,
+    "htf_age_min_at_touch": 205.0,
+    "htf_age_min_at_entry": 310.0,
+    "min_between_touch_and_entry": 105.0,
+    "hour_of_day_entry": 6,
+    "day_of_week_entry": 0,
+    "is_rth_session": 0,
+    "ltf_direction_matches_htf": 1,
+    "R_multiple": 1.0,
+    "label_outcome": 1
+  }
+}
