@@ -5,7 +5,7 @@
     "symbol": "NQ1!",
     "timeframe": "5m",
     "timezone": "UTC",
-    "created_at": "2025-12-16T02:04:18.871149Z"
+    "created_at": "2025-12-15T04:06:03.343265Z"
   },
   "trade_signals": [
     {
@@ -16,8 +16,8 @@
       "index_valid_close_after_touch": 1,
       "entry_ts": "2025-01-06T23:25:00Z",
       "entry_price": 21775.75,
-      "stop_loss": null,
-      "take_profit": null,
+      "stop_loss": 21797.0,
+      "take_profit": 21754.5,
       "exit_signal": null,
       "exit_ts": null,
       "exit_price": null
@@ -101,7 +101,6 @@
     "signal_count": 1,
     "status": "completed"
   },
-  "ohlc_1h": [],
   "ohlc_5m": [
     {
       "ts_event": "2025-01-06T16:00:00Z",
@@ -804,7 +803,139 @@
       "close": 21775.75,
       "volume": 213.0,
       "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-01-06T23:30:00Z",
+      "open": 21774.75,
+      "high": 21781.5,
+      "low": 21773.5,
+      "close": 21777.25,
+      "volume": 170.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-01-06T23:35:00Z",
+      "open": 21777.0,
+      "high": 21777.5,
+      "low": 21768.75,
+      "close": 21773.5,
+      "volume": 271.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-01-06T23:40:00Z",
+      "open": 21773.0,
+      "high": 21778.25,
+      "low": 21772.25,
+      "close": 21777.0,
+      "volume": 132.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-01-06T23:45:00Z",
+      "open": 21776.25,
+      "high": 21784.0,
+      "low": 21771.75,
+      "close": 21774.0,
+      "volume": 444.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-01-06T23:50:00Z",
+      "open": 21775.0,
+      "high": 21778.25,
+      "low": 21772.75,
+      "close": 21775.25,
+      "volume": 188.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-01-06T23:55:00Z",
+      "open": 21774.5,
+      "high": 21777.0,
+      "low": 21768.75,
+      "close": 21771.75,
+      "volume": 263.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-01-07T00:00:00Z",
+      "open": 21770.25,
+      "high": 21775.75,
+      "low": 21764.0,
+      "close": 21764.5,
+      "volume": 404.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-01-07T00:05:00Z",
+      "open": 21764.0,
+      "high": 21768.0,
+      "low": 21760.25,
+      "close": 21763.75,
+      "volume": 345.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-01-07T00:10:00Z",
+      "open": 21763.5,
+      "high": 21770.0,
+      "low": 21763.5,
+      "close": 21768.5,
+      "volume": 228.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-01-07T00:15:00Z",
+      "open": 21768.25,
+      "high": 21774.5,
+      "low": 21764.75,
+      "close": 21766.25,
+      "volume": 322.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-01-07T00:20:00Z",
+      "open": 21767.0,
+      "high": 21770.75,
+      "low": 21765.0,
+      "close": 21769.5,
+      "volume": 145.0,
+      "is_rth_session": false
+    },
+    {
+      "ts_event": "2025-01-07T00:25:00Z",
+      "open": 21770.5,
+      "high": 21770.75,
+      "low": 21763.0,
+      "close": 21765.0,
+      "volume": 147.0,
+      "is_rth_session": false
     }
   ],
-  "ohlc_1m": []
+  "ml_features": {
+    "schema_version": "1.0.0",
+    "event_id": "EV00164",
+    "htf_fvg_width": 48.75,
+    "htf_fvg_mid": 21820.125,
+    "is_long": 0,
+    "entry_price": 21775.75,
+    "stop_loss": 21797.0,
+    "take_profit": 21754.5,
+    "R": 21.25,
+    "RR_target": 1.0,
+    "dist_entry_to_mid": -44.375,
+    "dist_entry_to_mid_in_R": -2.088235294117647,
+    "dist_touch_to_mid": -23.875,
+    "dist_touch_to_mid_in_R": -1.1235294117647059,
+    "htf_age_min_at_touch": 420.0,
+    "htf_age_min_at_entry": 445.0,
+    "min_between_touch_and_entry": 25.0,
+    "hour_of_day_entry": 23,
+    "day_of_week_entry": 0,
+    "is_rth_session": 0,
+    "ltf_direction_matches_htf": 1,
+    "R_multiple": null,
+    "label_outcome": null
+  }
 }

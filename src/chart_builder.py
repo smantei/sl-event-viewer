@@ -12,8 +12,7 @@ def parse_ts(value: str):
     """
     if value is None:
         return None
-    ts = pd.to_datetime(value, utc=True, errors="coerce")
-    return ts
+    return pd.to_datetime(value, utc=True, errors="coerce")
 
 
 # -------------------------------------------------------
@@ -29,6 +28,7 @@ def get_time_window(event: dict):
       - hourly_fvg.start_time
       - fvg_5m.start_time / touch_ts / entry_ts
       - bos_5m.ts_event
+      - trade_signals.entry_ts / exit_ts   (FIX)
 
     Final clamp to OHLC range is done later.
     """
@@ -69,6 +69,17 @@ def get_time_window(event: dict):
             candidates_start.append(ts)
             candidates_end.append(ts)
 
+    # ✅ FIX: trade signals (entry + exit) must influence the visual window
+    for sig in event.get("trade_signals", []):
+        et = parse_ts(sig.get("entry_ts"))
+        xt = parse_ts(sig.get("exit_ts"))
+        if et is not None:
+            candidates_start.append(et)
+            candidates_end.append(et)
+        if xt is not None:
+            candidates_start.append(xt)
+            candidates_end.append(xt)
+
     if not candidates_start or not candidates_end:
         return None, None
 
@@ -107,7 +118,7 @@ def build_chart(df_5m: pd.DataFrame, event: dict) -> go.Figure:
         )
         return fig
 
-    # Ensure ts_event is datetime
+    df_5m = df_5m.copy()
     df_5m["ts_event"] = pd.to_datetime(df_5m["ts_event"], utc=True)
 
     # Keep a full copy for index-based lookups
@@ -129,6 +140,10 @@ def build_chart(df_5m: pd.DataFrame, event: dict) -> go.Figure:
     pre_start = parse_ts(hourly.get("pretouch_window_start"))
     if pre_start is not None:
         start_ts = max(pre_start, data_min)
+
+    # Clamp to available OHLC data
+    start_ts = max(start_ts, data_min)
+    end_ts = min(end_ts, data_max)
 
     df = df_full[
         (df_full["ts_event"] >= start_ts)
@@ -154,6 +169,8 @@ def build_chart(df_5m: pd.DataFrame, event: dict) -> go.Figure:
             name="",
         )
     )
+
+    # Keep axis aligned to the sliced window (now includes exit_ts)
     fig.update_xaxes(range=[df["ts_event"].min(), df["ts_event"].max()])
 
     # ========================================================
@@ -184,7 +201,7 @@ def build_chart(df_5m: pd.DataFrame, event: dict) -> go.Figure:
     bos_x, bos_y, bos_lbl = [], [], []
     for b in bos_5m:
         ts = parse_ts(b.get("ts_event"))
-        if ts:
+        if ts is not None:
             bos_x.append(ts)
             bos_y.append(b.get("trigger_close"))
             bos_lbl.append(b.get("bos_direction"))
@@ -245,7 +262,6 @@ def build_chart(df_5m: pd.DataFrame, event: dict) -> go.Figure:
         ft_ts = parse_ts(f.get("touch_ts"))
         vc_ts = parse_ts(f.get("entry_ts"))  # VC candle = entry candle
 
-        # Use candle mid-price for labels to sit nicely on the candle
         def _candle_mid(ts_val):
             row = df_full[df_full["ts_event"] == ts_val]
             if row.empty:
@@ -254,7 +270,6 @@ def build_chart(df_5m: pd.DataFrame, event: dict) -> go.Figure:
             low = float(row.iloc[0]["low"])
             return (high + low) / 2.0
 
-        # FT marker
         if ft_ts is not None:
             y_ft = _candle_mid(ft_ts)
             if y_ft is not None:
@@ -270,7 +285,6 @@ def build_chart(df_5m: pd.DataFrame, event: dict) -> go.Figure:
                     )
                 )
 
-        # VC marker
         if vc_ts is not None:
             y_vc = _candle_mid(vc_ts)
             if y_vc is not None:
@@ -287,18 +301,15 @@ def build_chart(df_5m: pd.DataFrame, event: dict) -> go.Figure:
                 )
 
     # ========================================================
-    # TRADE SIGNAL MARKERS (entry + future: exit)
+    # TRADE SIGNAL MARKERS (entry + exit)
     # ========================================================
     for sig in trade_signals:
         et = parse_ts(sig.get("entry_ts"))
         ep = sig.get("entry_price")
         sig_name = sig.get("signal")
 
-        if et and ep:
-            # dashed line at entry candle
+        if et is not None and ep is not None:
             fig.add_vline(x=et, line=dict(width=1, dash="dash"))
-
-            # marker + label using exact signal name (e.g. "buy_long")
             fig.add_trace(
                 go.Scatter(
                     x=[et],
@@ -311,11 +322,10 @@ def build_chart(df_5m: pd.DataFrame, event: dict) -> go.Figure:
                 )
             )
 
-        # Exit marker (optional, if present)
         xt = parse_ts(sig.get("exit_ts"))
         xp = sig.get("exit_price")
         exit_sig = sig.get("exit_signal")
-        if xt and xp:
+        if xt is not None and xp is not None:
             fig.add_vline(x=xt, line=dict(width=1, dash="dot"))
             fig.add_trace(
                 go.Scatter(
@@ -357,9 +367,8 @@ def build_chart(df_5m: pd.DataFrame, event: dict) -> go.Figure:
         height=900,
     )
 
-    # Full numbers instead of 25.6k shorthand
     fig.update_yaxes(
-        tickformat=",.0f",   # use ".0f" if you don't want commas
+        tickformat=",.0f",
         showexponent="none",
     )
 
