@@ -3,7 +3,9 @@ import streamlit as st
 from pathlib import Path
 
 from event_loader import load_event_json
-from chart_builder import build_chart
+from chart_builder_1h import build_chart_1h
+from chart_builder_5m import build_chart as build_chart_5m
+from chart_builder_1m import build_chart_1m
 
 OUTPUT_DIR = Path("output")
 
@@ -16,7 +18,6 @@ def main():
     st.sidebar.header("Event Selection")
 
     event_files = sorted(OUTPUT_DIR.glob("*.json"))
-
     if not event_files:
         st.sidebar.error(f"No event JSON files in {OUTPUT_DIR}/")
         st.stop()
@@ -28,10 +29,14 @@ def main():
     # Load event JSON
     event = load_event_json(selected_path)
 
-    # Build dataframe from embedded candles
+    # Build dataframes from embedded candles
     df_5m = pd.DataFrame(event.get("ohlc_5m", []))
-    if not df_5m.empty:
-        df_5m["ts_event"] = pd.to_datetime(df_5m["ts_event"], utc=True)
+    df_1h = pd.DataFrame(event.get("ohlc_1h", []))
+    df_1m = pd.DataFrame(event.get("ohlc_1m", []))
+
+    for df in (df_5m, df_1h, df_1m):
+        if not df.empty and "ts_event" in df.columns:
+            df["ts_event"] = pd.to_datetime(df["ts_event"], utc=True)
 
     # ---------------- Sidebar: summary ----------------
     st.sidebar.markdown("---")
@@ -48,8 +53,6 @@ def main():
 
     st.sidebar.write(f"**Event ID:** {event.get('event_id', 'N/A')}")
     st.sidebar.write(f"**Status:** {summary.get('status', 'N/A')}")
-
-    # Summary counts (these are the numbers you just added)
     st.sidebar.write(f"**5m FVGs:** {summary.get('fvg_5m_count', 'N/A')}")
     st.sidebar.write(f"**5m BOS events:** {summary.get('bos_5m_count', 'N/A')}")
     st.sidebar.write(f"**Trade signals:** {summary.get('signal_count', 'N/A')}")
@@ -59,7 +62,6 @@ def main():
     st.sidebar.write(f"**Hourly FVG start:** {hourly_start}")
     st.sidebar.write(f"**Hourly FVG end:** {hourly_end}")
 
-    # Big colored arrow for direction
     if hourly_dir == "up":
         arrow_html = """
         <div style="display:flex;align-items:center;gap:8px;">
@@ -80,7 +82,6 @@ def main():
     st.sidebar.markdown(arrow_html, unsafe_allow_html=True)
     st.sidebar.write(f"**Hourly FVG end_bound:** {hourly_end_bound}")
 
-    # ---- Pre / Post windows in sidebar ----
     pre_start = hourly.get("pretouch_window_start", "N/A")
     pre_end = hourly.get("pretouch_window_end", "N/A")
     post_start = hourly.get("posttouch_window_start", "N/A")
@@ -92,7 +93,6 @@ def main():
 
     # ---------------- Trades + metrics ----------------
     trade_signals = event.get("trade_signals", []) or []
-
     if not trade_signals:
         st.sidebar.markdown("---")
         st.sidebar.write("**Trades:** None")
@@ -118,43 +118,17 @@ def main():
             st.sidebar.write(f"**Exit Type:** {exit_type or 'N/A'}")
             st.sidebar.write(f"**Exit Time:** {exit_ts or 'N/A'}")
             st.sidebar.write(f"**Exit Price:** {exit_price if exit_price is not None else 'N/A'}")
-
-            # ---- Derived metrics: R, PnL, PnL in R ----
-            R = None
-            pnl_points = None
-            pnl_R = None
-
-            if (
-                entry_price is not None
-                and stop_loss is not None
-                and exit_price is not None
-            ):
-                # 1R based on distance to stop
-                R = abs(entry_price - stop_loss)
-
-                # Long vs short PnL in points
-                if signal_type == "buy_long":
-                    pnl_points = exit_price - entry_price
-                elif signal_type == "sell_short":
-                    pnl_points = entry_price - exit_price
-
-                if R and pnl_points is not None:
-                    pnl_R = pnl_points / R
-
-            # Only show metrics if we could compute them
-            if R is not None:
-                st.sidebar.write(f"**R (risk per trade):** {R:.2f}")
-            if pnl_points is not None:
-                st.sidebar.write(f"**PnL (points):** {pnl_points:.2f}")
-            if pnl_R is not None:
-                st.sidebar.write(f"**PnL (R):** {pnl_R:.2f}")
-
             st.sidebar.markdown("---")
 
-    # ---------------- Main Chart ----------------
-    st.subheader("Event Chart")
-    fig = build_chart(df_5m, event)
-    st.plotly_chart(fig, use_container_width=True)
+    # ---------------- Main Charts ----------------
+    st.subheader("1h Context")
+    st.plotly_chart(build_chart_1h(df_1h, event), use_container_width=True)
+
+    st.subheader("5m Execution")
+    st.plotly_chart(build_chart_5m(df_5m, event), use_container_width=True)
+
+    st.subheader("1m Outcome")
+    st.plotly_chart(build_chart_1m(df_1m, event), use_container_width=True)
 
 
 if __name__ == "__main__":
